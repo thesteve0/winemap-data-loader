@@ -9,12 +9,15 @@ def main(self):
 def parse(self):
     parser = argparse.ArgumentParser(description='postgresql database')
     parser.add_argument('--server', help='the postgreql ip address')
+    parser.add_argument('--user', help='username of postgresql user')
+    parser.add_argument('--password', help='user password for postgresql')
+    parser.add_argument('--dbname',help='the name of the database')
     args = parser.parse_args()
     self.setupDb(args.server)
 
 #takes the csv and inserts it into the db
-def setupDb(self, server):
-    conn = psycopg2.connect("host=" + servers + " port='5432' dbname='wineDb' user='username' password='password'")
+def setupDb(self, server, user, password, dbname):
+    conn = psycopg2.connect("host=" + server + " port='5432' dbname="+dbname+" user="+user+" password="+password)
     cur = conn.cursor()
 
     # does table exist
