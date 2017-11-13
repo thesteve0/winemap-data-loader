@@ -5,7 +5,7 @@ class DatabaseLoader():
     #main function
     def __init__(self):
         parser = argparse.ArgumentParser(description='postgresql database')
-        parser.add_argument('-server', help='the postgreql ip address')
+        parser.add_argument('-p', help='the postgreql ip address')
         parser.add_argument('-user', help='username of postgresql user')
         parser.add_argument('-password', help='user password for postgresql')
         parser.add_argument('-dbname', help='the name of the database')
