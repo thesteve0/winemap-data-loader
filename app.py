@@ -14,6 +14,7 @@ class DatabaseLoader():
 
     #takes the csv and inserts it into the db
     def setupDb(self, server, user, password, dbname):
+        print(server)
         conn = psycopg2.connect("host=" + str(server) + " port='5432' dbname=" + str(dbname) + " user=" + str(user) + " password=" + str(password))
         cur = conn.cursor()
 
