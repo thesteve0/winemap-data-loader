@@ -12,7 +12,7 @@ class DatabaseLoader():
         args = parser.parse_args()
         print(args)
         print(args.server)
-        print(self.server)
+        print("server "+self.server)
         self.setupDb(args.server, args.user, args.password, args.dbname)
 
     #takes the csv and inserts it into the db
