@@ -10,6 +10,8 @@ class DatabaseLoader():
         parser.add_argument('--password', help='user password for postgresql')
         parser.add_argument('--dbname', help='the name of the database')
         args = parser.parse_args()
+        print(args)
+        print(args.server)
         self.setupDb(args.server, args.user, args.password, args.dbname)
 
     #takes the csv and inserts it into the db
