@@ -8,7 +8,7 @@ class DatabaseLoader():
         parser.add_argument('--server', help='the postgreql ip address')
         parser.add_argument('--user', help='username of postgresql user')
         parser.add_argument('--password', help='user password for postgresql')
-        parser.add_argument('-=dbname', help='the name of the database')
+        parser.add_argument('--dbname', help='the name of the database')
         args = parser.parse_args()
         self.setupDb(args.server, args.user, args.password, args.dbname)
 
