@@ -1,19 +1,15 @@
 import psycopg2
 import argparse
+from os import environ
 
 class DatabaseLoader():
     #main function
     def __init__(self):
-        parser = argparse.ArgumentParser(description='postgresql database')
-        parser.add_argument('--server', help='the postgreql ip address')
-        parser.add_argument('--user', help='username of postgresql user')
-        parser.add_argument('--password', help='user password for postgresql')
-        parser.add_argument('--dbname', help='the name of the database')
-        args = parser.parse_args()
-        print(args)
-        print(args.server)
-        print("server "+self.server)
-        self.setupDb(args.server, args.user, args.password, args.dbname)
+        server  = environ.get("server")
+        user = environ.get("user")
+        password = environ.get("password")
+        dbname = environ.get("dbname")
+        self.setupDb(server, user, password, dbname)
 
     #takes the csv and inserts it into the db
     def setupDb(self, server, user, password, dbname):
