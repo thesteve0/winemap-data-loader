@@ -1,5 +1,4 @@
 import psycopg2
-import argparse
 from os import environ
 
 class DatabaseLoader():
@@ -22,6 +21,7 @@ class DatabaseLoader():
 
         # does table exist
         tb_exists = "select exists(select relname from pg_class where relname='" + "wine_reviews" + "')"
+        print(tb_exists)
         cur.execute(tb_exists)
         execute = cur.fetchone()[0]
         if not execute:
@@ -30,10 +30,12 @@ class DatabaseLoader():
                 'create table wine_reviews(country VARCHAR, designation VARCHAR, points INT, price VARCHAR, province VARCHAR, region_1 VARCHAR, region_2 VARCHAR, variety VARCHAR, winery VARCHAR);')
             conn.commit()
         # copy csv
+        print('added data')
         f = open(r'/opt/app-root/src/wineData.csv', 'r')
         cur.copy_from(f, "wine_reviews", sep=',')
         conn.commit()
         f.close()
+        print('')
 
 
 if __name__ == '__main__':
