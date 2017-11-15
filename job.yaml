@@ -1,19 +1,14 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: loaderJob
+  name: loaderjob
 spec:
   template:
     metadata:
-      name: loaderJob
+      name: loaderjob
     spec:
       containers:
-      - name: database
+      - name: loaderjob
         image: python
-        command:oc new-app https://github.com/rebeccaSimmonds19/WineMapDatabase.git \
-          --name database \
-          -e server='postgresql' \
-          -e user='username' \
-          -e password='password' \
-          -e dbname='wineDb'
-      restartPolicy: Never
+        command: ["oc new-app https://github.com/rebeccaSimmonds19/WineMapDatabase.git --name database -e server='postgresql'-e user='username' -e password='password' -e dbname='wineDb'"]
+    restartPolicy: OnFailure
