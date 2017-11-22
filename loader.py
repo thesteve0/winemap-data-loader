@@ -35,7 +35,7 @@ class DatabaseLoader():
         cur.copy_from(f, "wine_reviews", sep=',')
         conn.commit()
         f.close()
-        print('')
+        print('finished script')
 
 
 if __name__ == '__main__':
