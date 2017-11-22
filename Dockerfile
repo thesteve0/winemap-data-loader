@@ -5,4 +5,4 @@ ENV user username
 ENV password password
 ENV dbname wineDb
 
-ADD loader.py
+ADD loader.py /opt
