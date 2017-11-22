@@ -1,4 +1,4 @@
-FROM radanalyticsio/openshift-spark
+FROM centos:latest
 
 ENV server postgresql
 ENV user username
