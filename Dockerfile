@@ -1,4 +1,4 @@
-FROM python
+FROM radanalyticsio/openshift-spark
 
 ENV server postgresql
 ENV user username
