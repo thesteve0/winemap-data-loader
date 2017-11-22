@@ -1,5 +1,7 @@
 FROM centos:latest
 
+USER root
+
 ENV server postgresql
 ENV user username
 ENV password password
