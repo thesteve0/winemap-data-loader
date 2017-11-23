@@ -9,6 +9,8 @@ USER root
 
 ADD loader.py /app/loader.py
 
+ADD wineData.csv /opt/app-root/src/wineData.py
+
 RUN yum -y install epel-release && yum clean all
 
 RUN yum -y install python-pip && yum clean all
