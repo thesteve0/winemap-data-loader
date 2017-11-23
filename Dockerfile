@@ -9,6 +9,8 @@ USER root
 
 ADD loader.py /app/loader.py
 
+RUN yum install pip
+
 RUN pip install -r requirements.txt
 
 CMD ["python", "/app/loader.py"]
