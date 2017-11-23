@@ -55,5 +55,3 @@ RUN yum install -y curl wget java-headless bzip2 gnupg2 sqlite3 \
 ENV PATH /opt/conda/bin:$PATH
 
 ADD loader.py /app/loader.py
-
-CMD["python"]
