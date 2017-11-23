@@ -9,4 +9,4 @@ USER root
 
 ADD loader.py /app/loader.py
 
-CMD ["/bin/bash"]
+CMD ["/bin/bash", "sleep infinity"]
