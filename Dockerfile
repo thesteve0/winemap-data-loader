@@ -1,4 +1,4 @@
-FROM centos/python-35-centos7
+FROM python
 
 ENV server postgresql
 ENV user username
