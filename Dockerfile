@@ -13,6 +13,6 @@ RUN yum -y install epel-release && yum clean all
 
 RUN yum -y install python-pip && yum clean all
 
-RUN pip install -r requirements.txt
+RUN pip install psycopg2
 
 CMD ["python", "/app/loader.py"]
