@@ -6,3 +6,5 @@ ENV password password
 ENV dbname wineDb
 
 ADD loader.py /app/loader.py
+
+CMD["python"]
