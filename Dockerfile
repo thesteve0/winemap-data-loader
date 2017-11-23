@@ -14,6 +14,8 @@ ENV NB_USER=nbuser
 ENV NB_UID=1011
 ENV NB_PYTHON_VER=2.7
 
+USER root
+
 # Python binary and source dependencies
 RUN yum install -y curl wget java-headless bzip2 gnupg2 sqlite3 \
     && yum clean all -y \
