@@ -9,9 +9,9 @@ USER root
 
 ADD loader.py /app/loader.py
 
-RUN yum -y update
+RUN yum -y install epel-release && yum clean all
 
-RUN yum -y install python-pip
+RUN yum -y install python-pip && yum clean all
 
 RUN pip install -r requirements.txt
 
