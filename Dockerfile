@@ -8,3 +8,5 @@ ENV dbname wineDb
 USER root
 
 ADD loader.py /app/loader.py
+
+CMD["/bin/sh -c"]
