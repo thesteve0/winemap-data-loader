@@ -9,6 +9,8 @@ USER root
 
 ADD loader.py /app/loader.py
 
+RUN yum -y update
+
 RUN yum -y install python-pip
 
 RUN pip install -r requirements.txt
