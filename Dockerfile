@@ -9,4 +9,6 @@ USER root
 
 ADD loader.py /app/loader.py
 
+RUN pip install -r requirements.txt
+
 CMD ["python", "/app/loader.py"]
