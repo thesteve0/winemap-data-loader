@@ -9,4 +9,4 @@ USER root
 
 ADD loader.py /app/loader.py
 
-CMD ["python"]
+CMD ["/bin/bash"]
