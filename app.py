@@ -8,7 +8,8 @@ app = Flask(__name__)
 
 
 def setUp():
-    return DatabaseLoader()
+    loader = DatabaseLoader()
+    return loader.setupDb(DatabaseLoader.server, DatabaseLoader.user, DatabaseLoader.password, DatabaseLoader.dbname)
 
 @app.route('/wine')
 def index():
@@ -21,7 +22,6 @@ class DatabaseLoader:
         user = environ.get("user")
         password = environ.get("password")
         dbname = environ.get("dbname")
-        return self.setupDb(server, user, password, dbname)
 
     #takes the csv and inserts it into the db
     def setupDb(self, server, user, password, dbname):
