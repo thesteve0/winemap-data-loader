@@ -1,4 +1,5 @@
 import psycopg2
+import os
 from os import environ
 from flask import Flask
 
