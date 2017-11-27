@@ -1,7 +1,20 @@
 import psycopg2
 from os import environ
+from flask import Flask
 
-class DatabaseLoader():
+app = Flask(__name__)
+
+
+
+def setUp():
+    DatabaseLoader()
+
+@app.route('/')
+def index():
+    setUp()
+    return "true"
+
+class DatabaseLoader:
     #main function
     def __init__(self):
         server  = environ.get("server")
@@ -39,4 +52,5 @@ class DatabaseLoader():
 
 
 if __name__ == '__main__':
-    DatabaseLoader()
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
