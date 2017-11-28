@@ -1,14 +1,14 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: loader5
+  name: becky
 spec:
   template:
     metadata:
-      name: loader5
+      name: becky
     spec:
       containers:
-      - name: loader5
-        image: 172.30.1.1:5000/myproject/test
-        command: ["echo hello"]
+      - name: becky
+        image: 172.30.1.1:5000/myproject/becky
+        command: ["python", "app.py"]
       restartPolicy: Never
