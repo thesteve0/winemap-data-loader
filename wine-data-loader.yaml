@@ -1,0 +1,49 @@
+kind: Template
+apiVersion: v1
+template: wine-data-loader
+metadata:
+  name: wine-data-loader
+objects:
+
+- kind: Job
+  apiVersion: batch/v1
+  metadata:
+    name: ${JOB_NAME}
+  spec:
+    parallelism: 1
+    completions: 1
+    template:
+      metadata:
+        name: ${JOB_NAME}
+      spec:
+        containers:
+          - name: wine-data-loader
+            image: docker.io/rsimmond/wine-data-loader
+            env:
+              - name: SERVER
+                value: ${SERVER}
+              - name: USER
+                value: ${USER}
+              - name: PASSWORD
+                value: ${PASSWORD}
+              - name: DBNAME
+                value: ${DBNAME}
+        restartPolicy: OnFailure
+
+parameters:
+  - name: SERVER
+    description: the server name or ip
+    required: true
+  - name: USER
+    description: user for the database server
+    required: true
+  - name: PASSWORD
+    description: password to access the database server
+    required: true
+  - name: DBNAME
+    description: database name to load with data
+    required: true
+  - name: JOB_NAME
+    from: "jdsl-[a-z0-9]{4}"
+    generate: expression
+    description: unique name for this job run
