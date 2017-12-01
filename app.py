@@ -21,13 +21,13 @@ class DatabaseLoader:
         # does table exist
         tb_exists = "select exists(" \
                     "select relname from pg_class where relname='"\
-                    + "wine-reviews" + "')"
+                    + "wine_reviews" + "')"
         cur.execute(tb_exists)
         execute = cur.fetchone()[0]
         if not execute:
             # make table
             cur.execute(
-                'create table wine-reviews('
+                'create table wine_reviews('
                 'country VARCHAR, '
                 'designation VARCHAR, '
                 'points INT, '
