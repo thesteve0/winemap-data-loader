@@ -5,10 +5,10 @@ from os import environ
 class DatabaseLoader:
     # main function
     def __init__(self):
-        server = environ.get("server")
-        user = environ.get("user")
-        password = environ.get("password")
-        dbname = environ.get("dbname")
+        server = environ.get("SERVER")
+        user = environ.get("USER")
+        password = environ.get("PASSWORD")
+        dbname = environ.get("DBNAME")
         self.setup_db(server, user, password, dbname)
 
     # takes the csv and inserts it into the db
