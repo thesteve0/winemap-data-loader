@@ -9,12 +9,8 @@ oc new-app \
     -p POSTGRESQL_DATABASE=wineDb\
     --template=postgresql-persistent
     
-docker build . -t loader --build-arg server='postgresql' --build-arg user='username' --build-arg password='password' --build-arg dbname='wineDb'
+clone this repo
 
-docker tag loader 172.30.1.1:5000/myproject/loader
+oc create -f wine-data-loader.yaml
 
-docker login -u $(oc whoami) -p $(oc whoami -t) 172.30.1.1:5000
-
-docker push 172.30.1.1:5000/myproject/loader
-
-oc create -f job.yaml
+oc new-app --template=wine-data-loader -p SERVER=postgresql -p PASSWORD=password -p USER=username -p DBNAME=wineDb
