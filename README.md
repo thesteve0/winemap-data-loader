@@ -1,4 +1,4 @@
-# WineMapDatabase
+# winemap-data-loader
 Creates a postgresql container on OS and then loads wine review data from a data loader image as a job
 
 
