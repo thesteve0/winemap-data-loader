@@ -21,28 +21,28 @@ objects:
             image: docker.io/rsimmond/wine-data-loader
             env:
               - name: SERVER
-                value: ${SERVER}
-              - name: USER
-                value: ${USER}
-              - name: PASSWORD
-                value: ${PASSWORD}
+                valueFrom:
+                  secretKeyRef:
+                    name: winemap-secret
+                    key: server
               - name: DBNAME
-                value: ${DBNAME}
+                valueFrom:
+                  secretKeyRef:
+                    name: winemap-secret
+                    key: dbname
+              - name: USER
+                valueFrom:
+                  secretKeyRef:
+                    name: winemap-secret
+                    key: username
+              - name: PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: winemap-secret
+                    key: password
         restartPolicy: OnFailure
 
 parameters:
-  - name: SERVER
-    description: the server name or ip
-    required: true
-  - name: USER
-    description: user for the database server
-    required: true
-  - name: PASSWORD
-    description: password to access the database server
-    required: true
-  - name: DBNAME
-    description: database name to load with data
-    required: true
   - name: JOB_NAME
     from: "jdsl-[a-z0-9]{4}"
     generate: expression
