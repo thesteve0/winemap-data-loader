@@ -1,4 +1,4 @@
-FROM python:latest
+FROM python-27-centos7:latest
 
 ADD requirements.txt /
 
