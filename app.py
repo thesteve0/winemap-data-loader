@@ -40,7 +40,7 @@ class DatabaseLoader:
                 'winery VARCHAR);')
             conn.commit()
         # copy csv
-        f = open(r'/wine-data.csv', 'r')
+        f = open(r'wine-data.csv', 'r')
         cur.copy_from(f, "wine_reviews", sep=',')
         conn.commit()
         f.close()
