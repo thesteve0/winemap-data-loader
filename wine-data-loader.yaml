@@ -18,7 +18,7 @@ objects:
       spec:
         containers:
           - name: wine-data-loader
-            image: docker.io/rsimmond/wine-data-loader
+            image: docker.io/radanalyticsio/winemap-data-loader
             env:
               - name: SERVER
                 valueFrom:
