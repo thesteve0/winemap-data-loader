@@ -1,6 +1,10 @@
-FROM centos/python-27-centos7:latest
+FROM centos:latest
 
 ADD requirements.txt .
+
+RUN yum -y install epel-release && \
+    yum -y install python-pip && \
+    yum clean all
 
 RUN pip install -r requirements.txt
 
